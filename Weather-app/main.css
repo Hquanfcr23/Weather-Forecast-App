@@ -1,0 +1,21 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #1E1E1E;
+    color: #fff;
+  }
+
+  #weather_hourly_forecast_img_2 {
+    transform: rotate(-30deg);
+  }
+
+  #weather_hourly_forecast_img_4 {
+    transform: rotate(30deg);
+  }
+
+  

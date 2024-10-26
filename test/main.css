@@ -1,0 +1,88 @@
+body {
+    background-color: #ccc;
+}
+
+.badgets {
+   position: relative;
+   width: 100%;
+   border-bottom: 2px solid rgb(75, 75, 75);
+}
+
+.fa-facebook {
+    display: inline-block;
+    font-size: 55px;
+}
+
+.gsearch {
+    display: inline-block;
+    background-color: rgba(204, 204, 204, 0.355);
+    border-radius: 0.75em;
+    font-size: 1.2em;
+}
+
+.menu-icon {
+    display: inline-block;
+    position: absolute;
+    top: 0%;
+    font-size: 30px;
+}
+
+.fa-house {
+    left: 30%;
+}
+
+.fa-tv {
+    left:40%
+}
+
+.fa-store {
+    left: 50%;
+}
+
+
+.fa-bell {
+    right: 4%;
+}
+
+.fa-facebook-messenger {
+    right: 7%;
+}
+
+.fa-bars {
+    right: 10%;
+}
+
+.fa-circle-user {
+    right: 0.5%;
+    font-size: 35px;
+}
+
+.flex-container {
+    display: flex;
+}
+
+a {
+    color: #696969; 
+}
+
+.flex-container > a > i {
+    color: 	#696969;
+    padding: 10px 30px;  
+}
+
+.flex-container:hover >a >i {
+    background-color: rgba(94, 91, 91, 0.636);
+    color: blue;
+    border-radius: 10px;
+
+}
+
+
+.end-bar > a > i {
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.end-bar:hover > a > i {
+    background-color: rgba(94, 91, 91, 0.636);
+}

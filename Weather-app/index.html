@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weather App</title>
+        <link rel="stylesheet" href="./main.css">
+    </head>
+    <body>
+        <div class="container"
+            style="margin: 60px 290px;background-image: linear-gradient(to right, #383838,#383838,#111111);; border-radius: 12px; display:flex;flex-direction: column;">
+            <div class="header"
+                style="padding: 40px 60px; display: flex; justify-content: space-between;">
+                <div
+                    style="display: flex; flex-direction: column; align-items: center;">
+                    <svg height="36px" version="1.1" id="_x32_"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        viewBox="0 0 512 512" xml:space="preserve"
+                        fill="#000000"><g id="SVGRepo_bgCarrier"
+                            stroke-width="0"></g><g id="SVGRepo_tracerCarrier"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></g><g
+                            id="SVGRepo_iconCarrier"> <style
+                                type="text/css"> .st0{fill:#fff;} </style> <g>
+                                <path class="st0"
+                                    d="M375.898,119.898H136.102C60.938,119.898,0,180.836,0,256s60.938,136.102,136.102,136.102h239.797 C451.062,392.102,512,331.164,512,256S451.062,119.898,375.898,119.898z M136.102,340.258c-46.461,0-84.258-37.797-84.258-84.258 c0-46.453,37.797-84.258,84.258-84.258s84.258,37.805,84.258,84.258C220.359,302.461,182.562,340.258,136.102,340.258z"></path>
+                            </g> </g></svg>
+                    <div style="font-size: 14px;">Dark mode</div>
+                </div>
+                <div class="header_input"
+                    style="height:32px;margin: auto 40px; display: flex; align-items: center; justify-content: center; background-color:  #444444;border-radius:16px;">
+                    <svg style="height: 20px;margin:0 15px; cursor: pointer; "
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                        fill="#fff"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path
+                            d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" /></svg>
+                    <div>
+                        <input id="search_input" placeholder="Search for your preffered city..."
+                            type="text"
+                            style="background-color: #444444; border: none; outline: none; color: #fff; width: 380px;">
+                    </div>
+                </div>
+                <div
+                    style="margin: auto 0;height:40px;display: flex; align-items: center; justify-content: center; background-color: #4CBB17; padding: 0 14px; border-radius: 20px;">
+                    <svg style="height: 20px;" fill="#000000"
+                        viewBox="0 0 1920 1920"
+                        xmlns="http://www.w3.org/2000/svg"><g
+                            id="SVGRepo_bgCarrier" stroke-width="0"></g><g
+                            id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                            stroke-linejoin="round"></g><g
+                            id="SVGRepo_iconCarrier"> <path
+                                d="M1691.249 1016.47c-27.558 359.718-315.106 647.154-674.824 674.824v-223.059h-112.94v223.06c-359.718-27.671-647.154-315.107-674.711-674.824H451.72V903.529H228.774c27.557-359.717 314.993-647.153 674.71-674.823v223.059h112.941v-223.06c359.718 27.671 647.266 315.107 674.824 674.824H1468.19v112.942h223.059Zm112.941-112.94c-28.01-421.949-365.703-759.756-787.765-787.765V0h-112.94v115.765c-421.949 28.01-759.643 365.816-787.653 787.764H-.045v112.942h115.877c28.01 421.948 365.704 759.755 787.652 787.764V1920h112.941v-115.765c422.062-28.01 759.756-365.816 787.765-787.764h115.765V903.529H1804.19ZM960 1242.352c-155.633 0-282.353-126.72-282.353-282.353S804.367 677.647 960 677.647 1242.353 804.367 1242.353 960 1115.633 1242.353 960 1242.353m0-677.647c-217.976 0-395.294 177.318-395.294 395.294 0 217.976 177.318 395.294 395.294 395.294 217.976 0 395.294-177.318 395.294-395.294 0-217.976-177.318-395.294-395.294-395.294"
+                                fill-rule="evenodd"></path> </g></svg>
+                    <button
+                        style="font-weight: 700;background-color: #444444; margin-left: 6px; border:none; outline:none; background-color: #4CBB17;  color:#fff;">Curren
+                        Location</button>
+                </div>
+            </div>
+            <div class="content" style="padding: 0 0px 40px 0px;margin:0 60px;">
+                <div
+                    style="display: flex; justify-content: space-between; align-items: center;">
+                    <div
+                        style="margin-right: 15px;border:1px solid #3c3c3c;border-radius:16px;flex:2;background-color: #444444; box-shadow: rgba(0, 0, 0, 0.75) 5px 5px 2.6px; padding:40px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <h2 id="city_name">Athens</h2>
+                        <h1 id="current_time"
+                            style="font-size: 56px; font-weight: 900;">09:00</h1>
+                        <h4 id="current_date"
+                            style="font-weight: 300;">Thursday, 31 Aug</h4>
+                    </div>
+                    <div
+                        style="border:1px solid #3c3c3c;border-radius:16px;flex:4;background-color: #444444; margin-left: 15px; box-shadow: rgba(0, 0, 0, 0.75) 5px 5px 2.6px; display: flex; align-items: center; justify-content: space-between;">
+                        <div style="padding:0 0 0 16px; flex:1;">
+                            <div>
+                                <h1 
+                                    style="color: #c7c7c7;font-weight: 700; font-size:56px;"><span id="temp">24 </span>°C</h1>
+                                <p>
+                                    <span
+                                        style="color: #c7c7c7;font-weight: 300;">Feels
+                                        like:</span>
+                                    <span 
+                                        style="color: #c7c7c7;font-weight: 700; font-size:22px;"><span id="feels_like">22</span>°C</span>
+                                </p>
+                            </div>
+                            <div style="margin-top: 14px; margin-bottom: 4px;">
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: center; padding:2px 4px;">
+                                    <svg style="height: 36px;"
+                                        viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"><g
+                                            id="SVGRepo_bgCarrier"
+                                            stroke-width="0"></g><g
+                                            id="SVGRepo_tracerCarrier"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"></g><g
+                                            id="SVGRepo_iconCarrier"> <path
+                                                d="M8 18C8 15.7909 9.79086 14 12 14C14.2091 14 16 15.7909 16 18"
+                                                stroke="#fff"
+                                                stroke-width="0.72"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"></path>
+                                            <line x1="21" y1="21" x2="3" y2="21"
+                                                stroke="#fff"
+                                                stroke-width="0.72"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"></line>
+                                            <line x1="12" y1="11" x2="12" y2="9"
+                                                stroke="#fff"
+                                                stroke-width="0.72"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"></line>
+                                            <path d="M12 3L12 11" stroke="#fff"
+                                                stroke-width="0.72"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"></path>
+                                            <path d="M12 3L9 5.5" stroke="#fff"
+                                                stroke-width="0.72"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"></path>
+                                            <path d="M12 3L15 5.5" stroke="#fff"
+                                                stroke-width="0.72"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"></path>
+                                            <line x1="5" y1="18" x2="3" y2="18"
+                                                stroke="#fff"
+                                                stroke-width="0.72"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"></line>
+                                            <line x1="21" y1="18" x2="19"
+                                                y2="18" stroke="#fff"
+                                                stroke-width="0.72"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"></line>
+                                            <line x1="19.071" y1="11.3432"
+                                                x2="17.6568" y2="12.7574"
+                                                stroke="#fff"
+                                                stroke-width="0.72"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"></line>
+                                            <line x1="5.41421" y1="12"
+                                                x2="6.82843" y2="13.4142"
+                                                stroke="#fff"
+                                                stroke-width="0.72"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"></line>
+                                        </g></svg>
+                                    <div>
+                                        <div
+                                            style="font-size: 16px;">Sunrise</div>
+                                        <div 
+                                            style="font-size: 16px;"><span id="sunrise"></span>
+                                            AM</div>
+                                    </div>
+                                </div>
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: center; padding:2px 4px;">
+                                    <svg style="height: 36px;"
+                                        viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"><g
+                                            id="SVGRepo_bgCarrier"
+                                            stroke-width="0"></g><g
+                                            id="SVGRepo_tracerCarrier"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"></g><g
+                                            id="SVGRepo_iconCarrier"> <path
+                                                d="M8 18C8 15.7909 9.79086 14 12 14C14.2091 14 16 15.7909 16 18"
+                                                stroke="#fff"
+                                                stroke-width="0.72"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"></path>
+                                            <line x1="21" y1="21" x2="3" y2="21"
+                                                stroke="#fff"
+                                                stroke-width="0.72"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"></line>
+                                            <line x1="12" y1="11" x2="12" y2="9"
+                                                stroke="#fff"
+                                                stroke-width="0.72"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"></line>
+                                            <path d="M12 3L12 11" stroke="#fff"
+                                                stroke-width="0.72"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"></path>
+                                            <path d="M12 3L9 5.5" stroke="#fff"
+                                                stroke-width="0.72"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"></path>
+                                            <path d="M12 3L15 5.5" stroke="#fff"
+                                                stroke-width="0.72"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"></path>
+                                            <line x1="5" y1="18" x2="3" y2="18"
+                                                stroke="#fff"
+                                                stroke-width="0.72"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"></line>
+                                            <line x1="21" y1="18" x2="19"
+                                                y2="18" stroke="#fff"
+                                                stroke-width="0.72"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"></line>
+                                            <line x1="19.071" y1="11.3432"
+                                                x2="17.6568" y2="12.7574"
+                                                stroke="#fff"
+                                                stroke-width="0.72"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"></line>
+                                            <line x1="5.41421" y1="12"
+                                                x2="6.82843" y2="13.4142"
+                                                stroke="#fff"
+                                                stroke-width="0.72"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"></line>
+                                        </g></svg>
+                                    <div>
+                                        <div
+                                            style="font-size: 16px;">Sunset</div>
+                                        <div 
+                                            style="font-size: 16px;"><span id="sunset"></span>
+                                            PM</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            style="padding:10px; flex:1; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                            <img id="main_weather_img" height="160" src="https://s3-alpha-sig.figma.com/img/efa2/cf5a/1d7b9e01f29bf7c83b014121c2d853b7?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=VfmL7O3Zdmvg9Ny0k-f4QmbbKIqQp~Syz3yu86ve0M1TPXtNchU0Hh8VlAMCdr7fh6Ebu2XHVUWhPv8ARunt1gkyOk5G-zjfi1iYLtqMplF9PhCnrZh5qaZGoI9iiwNUY0n0bA0P5tC5taSJxjNn6zRbRPS-YV~N0NnStyxyvAjuHsmWKHiJbG3tHQPRmNZM8tApmlPE9q~08W-p7kUhMWsRYUpz9GGZ9RmonaeZHlb3bzUzaAOMz8cvTCfKWERJf5e9MKLhAdsTUPC7WnCytYulnX3tk8tK1ocjxGGEnGvWEFwLqI1oS9mfRarfFxFyQU4k8aOPrXexDsJR7iFCJA__" alt="">
+                            <div id="weather_main">Sunny</div>
+                        </div>
+                        <div
+                            style="margin-right:10px; padding:10px 0; flex:1; display: flex; align-items: center; justify-content: space-between;">
+                            <div
+                                style="display: flex; align-items: center; flex-direction: column;">
+                                <div
+                                    style="display: flex; align-items: center; flex-direction: column;">
+                                    <img style="height:28px;"
+                                        src="https://s3-alpha-sig.figma.com/img/eed6/4397/d70cae4f296d87efced42a104d6c2fb3?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YNJy4G9lINoq-GQjejjRz8dviclMA~5POUS8o7KU9WmrZUm4lqhEug64jAtbas4OVMjFMKDzskqOhbBUjkAIJZk-Vu9RCJ6x8pe8TzqUIw83S4qO01SYXpCZyC~CgMD9K2PGVAo3uD8bAvVLrNCdLu3UvobEjOjNzQDhbH2-9qWR132GzvYtLBz5fxwal0YNBDkMpfZaTXfjfT9cvU3IoO11Pgt1eawqXnmfDpSem7xI7CZraJRGiYIRq7bkZpVIX2CdElHhzQBjgekfTDUSmpd3PKwu~j2QYI1Y8dT551pqlEvgO6DJJrPr2KHwFXkIRMCAcR2vwmiVuo0ow1MQpQ__"
+                                        alt>
+                                    <div style="padding: 8px 0;"><span id="humidity">41%</span>%</div>
+                                    <div
+                                        style="font-size: 12px; font-weight: 300;">humidity</div>
+                                </div>
+                                <div
+                                    style="display: flex; align-items: center; flex-direction: column; padding-top:12px;">
+                                    <img style="height:28px;"
+                                        src="https://s3-alpha-sig.figma.com/img/0798/a096/e7645915e092aa210c94e6df82a1fe2f?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=gsqZLZyuPO65O-WcfwUnJBCShCvffb0Azae86v79r70lcPo3rKy3pBePp0EpdbiTMg7KxAg~~PEA~siwavSMtYkvLLGB8Yj6MVQhVa-vVUrRC2Q~C2AFE0lDzC-5oVa0NaBMFgFNWnR92261h7dMd7glfN9B80kwf4o4BJ5NIJ3ZDjXhmxBWEp8Fi4s4FrRycN~eSF2h~g3rDk2tkdy-nMRRvG6jFmqKqboze8kzVE~YRriveKma8f5BSbDC~nXoOyoNUsbovWG8vrcubImAgvmtq~YkdHn0wmKim3Vq1nesh6ESjn-9URiL3XcDMFtLdSHl2rCtmo55W~ZOuUYXhQ__"
+                                        alt>
+                                    <div style="padding: 8px 0;"><span id="pressure">997</span>hPa</div>
+                                    <div
+                                        style="font-size: 12px; font-weight: 300;">Pressure</div>
+                                </div>
+                            </div>
+                            <div
+                                style="display: flex; align-items: center; flex-direction: column;">
+                                <div
+                                    style="display: flex; align-items: center; flex-direction: column;">
+                                    <img style="height:28px;"
+                                        src="https://s3-alpha-sig.figma.com/img/a947/cdfb/75b7c15dd0ba477dc1629d8f08085300?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=afVMPHy6~ilBJYp7TOZsKqR3KDwEL8jZy0XJ6iA73AZ2A1roLzH0LBtgjk-qFGB~CXUzJM92fkHdkVimNol7jc9nLCCg3biWWTw-ckBUoaZnjUdJUUB-tUbiDHsJpcXq4hEaJyguRdj~hlNY2BLWonHF5V2KBiEwAHTcDY7VSsaelORx90sUx79ROrqWjiySPpj9nAcJIC8aPpdayzkc0ZnFmD1YpH8AbhOWXW9mV20X~AQVkSZckXyzc4vVPjxWTad6Cb3JpO9oN-XTSBZOGYiKMg9VwbIHScY1m0AtrcP-ud79fAy5cz2k2BXggAOXAiQEDHwFgY5xV7NBdmUDOg__"
+                                        alt>
+                                    <div style="padding: 8px 0;"><span id="wind_speed">2</span>km/h</div>
+                                    <div
+                                        style="font-size: 12px; font-weight: 300;">Wind
+                                        speed</div>
+                                </div>
+                                <div
+                                    style="display: flex; align-items: center; flex-direction: column; padding-top:12px;">
+                                    <img style="height:28px;"
+                                        src="https://s3-alpha-sig.figma.com/img/831f/5bd8/81a83e237073b59ad64aa75e43b239a4?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Xwja~LOIvCj5Eid8rBfNDnji3Cm4~nY2kEu9TQyer24typF0lDcaGAxJNW2tlnp-gglfQHYFFH-pcSdgW0rQa2It2T9CcgBnB13XAAlzU0vkxEi8YzQA43JMvT0z2CbZYHoVKPFl08QL3dU7F51NwOC2UgabkyuKcfL34e~ZPrm8WFLbYNqjJ9pGPPxq--S-isAMuHZPFqL7Dssu9ybfueFd2DcsJoIWmucda-40IZDs5wAMNw8GHFjztj7-UjEl-QW50dcF8diPoZch0Z1HBj3sctlRwn1wznOGZeCAe4PUVmiKHDGRjnPU42vuhuOoiizFLsldu0nJEFo2uEWhcQ__"
+                                        alt>
+                                    <div id="UV" style="padding: 8px 0;">8</div>
+                                    <div
+                                        style="font-size: 12px; font-weight: 300;">UV</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- row 2 -->
+                <div
+                    style="display: flex; justify-content: space-between; align-items: center; margin-top:26px;">
+                    <div
+                        style="margin-right: 15px;border:1px solid #3c3c3c;border-radius:16px;flex:2;background-color: #444444; box-shadow: rgba(0, 0, 0, 0.75) 5px 5px 2.6px; padding:10px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <h3 style="padding: 4px 0;">5 Days Forecast:</h3>
+                        <div
+                            style="display: flex; align-items: center; width: 100%;">
+                            <img class="weather_forecast_img" style="height: 34px; margin-right: 8px;"
+                                src="https://s3-alpha-sig.figma.com/img/bf19/6c94/cbfcbafce4cd54305df699239636628b?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=XYMBVOxWkfAa~Ey3Ro-1e~3xPV4vjAHsPjweiUf1sgs~yDNP8Qb0IHRW~5Lk6O1pal50nmbKO3JHsiO11fi5JUhdNYX5qMAJtXOPtfel8EVjShuMc~TH~nzzDaL1MAi1SL9rhXEpvDMYnqtK4S4NBmzaD~yK4m4l2ZxJIZ6jXW0bRyLw4bbItx9mPahJdqj1AYkbXPsuE1cXtFnMNbGimkVcluSIaaGEVJXyYIDzELRy7pWiBU8G29clicJxr1Ximhyuu7avzYRxBJelBjgfBW0kkuAb8mV8NdTbD3y7jlI0OzvniipuXZNmWMfqiljqafvuoJ11ooZ1OSqfWAs0tQ__"
+                                alt>
+                            <div class="weather_forecast_temp" style="margin:0 20px 0 6px;">20°C</div>
+                            <div class="weather_forecast_date">Friday, 1 Sep</div>
+                        </div>
+                        <div
+                            style="display: flex; align-items: center; width: 100%;">
+                            <img  class="weather_forecast_img" style="height: 34px; margin-right: 8px;"
+                                src="https://s3-alpha-sig.figma.com/img/560a/0b94/f13d5b080d9f2330f9f316ec0c49f9bb?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=VjZ0QrXyA17Tu~qzOuKkS-9BrvSe0HJrNSCtXS7jAnWH0eNhuySNMlxasSXZEtRtGXDfo7d2C-dlh2SHOvm6S0luK7v4DbJwm-UUE4N70OpLqYJnFNpBTCjTfPjlGL6ouk8MbmIS1WdXfV5RljvFuAgENECB-5lFAVfZi9r8dvQULusqY0D3x7fnv6t9Qn8qtw9GVcD8wcgyo1-UGzfN316QPPN5L6KaLvHHeXFUCz8jhe75UwNrNRXy4f5uT0oyAGKpmkgQhfs~II0iyV-Fey6JDSTmSHPbwbA-7960mhC9rvHgSKfrNzP6ueljquniTL2rpgxisFMjUsMNKxvEaw__"
+                                alt>
+                            <div class="weather_forecast_temp" style="margin:0 20px 0 6px;">22°C</div>
+                            <div class="weather_forecast_date">Saturday, 2 Sep</div>
+                        </div>
+                        <div
+                            style="display: flex; align-items: center; width: 100%;">
+                            <img  class="weather_forecast_img" style="height: 34px; margin-right: 8px;"
+                                src="https://s3-alpha-sig.figma.com/img/efa2/cf5a/1d7b9e01f29bf7c83b014121c2d853b7?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=VfmL7O3Zdmvg9Ny0k-f4QmbbKIqQp~Syz3yu86ve0M1TPXtNchU0Hh8VlAMCdr7fh6Ebu2XHVUWhPv8ARunt1gkyOk5G-zjfi1iYLtqMplF9PhCnrZh5qaZGoI9iiwNUY0n0bA0P5tC5taSJxjNn6zRbRPS-YV~N0NnStyxyvAjuHsmWKHiJbG3tHQPRmNZM8tApmlPE9q~08W-p7kUhMWsRYUpz9GGZ9RmonaeZHlb3bzUzaAOMz8cvTCfKWERJf5e9MKLhAdsTUPC7WnCytYulnX3tk8tK1ocjxGGEnGvWEFwLqI1oS9mfRarfFxFyQU4k8aOPrXexDsJR7iFCJA__"
+                                alt>
+                            <div class="weather_forecast_temp" style="margin:0 20px 0 6px;">27°C</div>
+                            <d class="weather_forecast_date"iv>Sunday, 3 Sep</d>
+                        </div>
+                        <div
+                            style="display: flex; align-items: center; width: 100%;">
+                            <img  class="weather_forecast_img" style="height: 34px; margin-right: 8px;"
+                                src="https://s3-alpha-sig.figma.com/img/e1e7/e0a0/6f2880e6e77ac6112553fbada8fad045?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=H6wm4bK-6tNYIVKWw7ExbZ9TDp2iARrtOUKcc8RB9UIDkxNfiG1qRa7f6KKEAKxEeWHAUizUzLFn-u79PSCokcBd0u4lnz9AxnocEcbuYZCmLq43eWYkFBqjagpv9Qo-rTvRbb93GqRgGb66BZNyj3mib07hp4SF7cCtaBx1SNRXLKGaYSt4tIbGjQfcuFJ2TkTlygn7P5S1XytqPjk4KCC8JQfFsRU4rYEw24nsWKlAQcD16wpeOCCuBYd9W7MyuIggQP73eKV5Yzvjooq5Pah-CkanrT33VUhYAYe~G1ghBkad2nuHZJBnGI1EfJdDq9IX0nQAa2inFEZsB~8RPQ__"
+                                alt>
+                            <div class="weather_forecast_temp" style="margin:0 20px 0 6px;">18°C</div>
+                            <d class="weather_forecast_date"iv>Monday, 4 Sep</d>
+                        </div>
+                        <div
+                            style="display: flex; align-items: center; width: 100%;">
+                            <img  class="weather_forecast_img" style="height: 34px; margin-right: 8px;"
+                                src="https://s3-alpha-sig.figma.com/img/cd44/fde2/29b4d987b7c3c469c28b1c201ddc576e?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=qGbVdLDaEy~pYoSFAoGPO5NsmgW0LPFTLlnpfGbO8~kn-PJPIeMk0q-BchbBB9sguMmMBg9U4U5XBiVLfE3Pzar6mb9nDnD0MjaQO95N~pmALMpmaKChXiiaqpq2HY9s38st7nSAaKEazLRXSDsH7WIw~doKmZ79I~HG0PEJ2sq6l~RHibpBTEGxi1TXwSA4LXFoQaMpLBvuaUUoF0pbjUPjTSGVm9~bEp3esht26VcTcPfgsWz4RJHMXd2Vd2nzxUTbSyBYh-5Y8qF6Ruux0KsDYk2k3L17fbHCBL2M8xYQrO7k16JhZlYPGVWKulqwo1fOEXhQT924ZAxU8c27mQ__"
+                                alt>
+                            <div class="weather_forecast_temp" style="margin:0 20px 0 6px;">16°C</div>
+                            <di class="weather_forecast_date"v>Tuesday, 5 Sep</di>
+                        </div>
+                    </div>
+                    <!-- col2 row2 -->
+                    <div
+                        style="padding:10px 16px;border:1px solid #3c3c3c;border-radius:16px;flex:5;background-color: #444444; margin-left: 15px; box-shadow: rgba(0, 0, 0, 0.75) 5px 5px 2.6px; display: flex; flex-direction:column; align-items: center; justify-content: space-between;">
+                        <h3 style="padding: 4px 0;">Hourly Forecast:</h3>
+                        <div
+                            style="display: flex; padding:10px; justify-content: space-between; align-items: center;">
+                            <div
+                                style="padding:10px 16px;margin:0 4px;background-color: #373636; border-radius: 20px;display: flex; justify-content: space-between; align-items: center; flex-direction:column;">
+                                <h3 class="weather_hourly_forecast_date">12:00</h3>
+                                <img style="height: 48px;"
+                                    class="weather_hourly_forecast_img"
+                                    src="https://s3-alpha-sig.figma.com/img/efa2/cf5a/1d7b9e01f29bf7c83b014121c2d853b7?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=VfmL7O3Zdmvg9Ny0k-f4QmbbKIqQp~Syz3yu86ve0M1TPXtNchU0Hh8VlAMCdr7fh6Ebu2XHVUWhPv8ARunt1gkyOk5G-zjfi1iYLtqMplF9PhCnrZh5qaZGoI9iiwNUY0n0bA0P5tC5taSJxjNn6zRbRPS-YV~N0NnStyxyvAjuHsmWKHiJbG3tHQPRmNZM8tApmlPE9q~08W-p7kUhMWsRYUpz9GGZ9RmonaeZHlb3bzUzaAOMz8cvTCfKWERJf5e9MKLhAdsTUPC7WnCytYulnX3tk8tK1ocjxGGEnGvWEFwLqI1oS9mfRarfFxFyQU4k8aOPrXexDsJR7iFCJA__"
+                                    alt>
+                                <h4><span class="weather_hourly_forecast_temp"></span>°C</h4>
+                                <img style="margin:4px 0;height: 32px;"
+                                    src="https://s3-alpha-sig.figma.com/img/eb5a/88ad/7a4e422bd09dc15e5d8255f5a6ae84f6?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=m2mQywidL1S8KTWJU6hzob4NV7KChVNRp52rHcd-hbRyx2cw-C343FK96c-H4L3rx3JRpJZ85dKrvlItjltjhtws0VsPUir7mieAEOP0ecFqZGS1poG~AWoFjk89OHtmnRicD7eFoSGyvscK8S8IObD2aP3DB6AKO7gwL6slBrH7udB63q7K-hbqnA1dWBTeMcJ2Ssl~8yX1GOJE2B4nzpqK3dBkzKfUd93RrAvocqkOTj2c1X5vt4WYyt1Bvn7NI9Ge8yYCf~0pckZQiA4M82KdK-4ASfL5voegrNbJMlGSUDPt6sejh4ELjmP~AxfPrnES7p3rriP4FPlazZIBxQ__"
+                                    alt>
+                                <h4 style="margin-top: 8px;"><span class="weather_hourly_forecast_speed"></span>km/h</h4>
+                            </div>
+                            <div
+                                style="padding:10px 16px;margin:0 4px;background-color: #373636; border-radius: 20px;display: flex; justify-content: space-between; align-items: center; flex-direction:column;">
+                                <h3 class="weather_hourly_forecast_date">12:00</h3>
+                                <img style="height: 48px;"
+                                    class="weather_hourly_forecast_img"
+                                    src="https://s3-alpha-sig.figma.com/img/efa2/cf5a/1d7b9e01f29bf7c83b014121c2d853b7?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=VfmL7O3Zdmvg9Ny0k-f4QmbbKIqQp~Syz3yu86ve0M1TPXtNchU0Hh8VlAMCdr7fh6Ebu2XHVUWhPv8ARunt1gkyOk5G-zjfi1iYLtqMplF9PhCnrZh5qaZGoI9iiwNUY0n0bA0P5tC5taSJxjNn6zRbRPS-YV~N0NnStyxyvAjuHsmWKHiJbG3tHQPRmNZM8tApmlPE9q~08W-p7kUhMWsRYUpz9GGZ9RmonaeZHlb3bzUzaAOMz8cvTCfKWERJf5e9MKLhAdsTUPC7WnCytYulnX3tk8tK1ocjxGGEnGvWEFwLqI1oS9mfRarfFxFyQU4k8aOPrXexDsJR7iFCJA__"
+                                    alt>
+                                <h4><span class="weather_hourly_forecast_temp"></span>°C</h4>
+                                <img id="weather_hourly_forecast_img_2" style="margin:4px 0;height: 32px;"
+                                    src="https://s3-alpha-sig.figma.com/img/eb5a/88ad/7a4e422bd09dc15e5d8255f5a6ae84f6?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=m2mQywidL1S8KTWJU6hzob4NV7KChVNRp52rHcd-hbRyx2cw-C343FK96c-H4L3rx3JRpJZ85dKrvlItjltjhtws0VsPUir7mieAEOP0ecFqZGS1poG~AWoFjk89OHtmnRicD7eFoSGyvscK8S8IObD2aP3DB6AKO7gwL6slBrH7udB63q7K-hbqnA1dWBTeMcJ2Ssl~8yX1GOJE2B4nzpqK3dBkzKfUd93RrAvocqkOTj2c1X5vt4WYyt1Bvn7NI9Ge8yYCf~0pckZQiA4M82KdK-4ASfL5voegrNbJMlGSUDPt6sejh4ELjmP~AxfPrnES7p3rriP4FPlazZIBxQ__"
+                                    alt>
+                                <h4 style="margin-top: 8px;"><span class="weather_hourly_forecast_speed"></span>km/h</h4>
+                            </div>
+                            <div
+                                style="padding:10px 16px;margin:0 4px;background-color: #373636; border-radius: 20px;display: flex; justify-content: space-between; align-items: center; flex-direction:column;">
+                                <h3 class="weather_hourly_forecast_date">12:00</h3>
+                                <img style="height: 48px;"
+                                    class="weather_hourly_forecast_img"
+                                    src="https://s3-alpha-sig.figma.com/img/efa2/cf5a/1d7b9e01f29bf7c83b014121c2d853b7?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=VfmL7O3Zdmvg9Ny0k-f4QmbbKIqQp~Syz3yu86ve0M1TPXtNchU0Hh8VlAMCdr7fh6Ebu2XHVUWhPv8ARunt1gkyOk5G-zjfi1iYLtqMplF9PhCnrZh5qaZGoI9iiwNUY0n0bA0P5tC5taSJxjNn6zRbRPS-YV~N0NnStyxyvAjuHsmWKHiJbG3tHQPRmNZM8tApmlPE9q~08W-p7kUhMWsRYUpz9GGZ9RmonaeZHlb3bzUzaAOMz8cvTCfKWERJf5e9MKLhAdsTUPC7WnCytYulnX3tk8tK1ocjxGGEnGvWEFwLqI1oS9mfRarfFxFyQU4k8aOPrXexDsJR7iFCJA__"
+                                    alt>
+                                <h4><span class="weather_hourly_forecast_temp"></span>°C</h4>
+                                <img id="weather_hourly_forecast_img_3" style="margin:4px 0;height: 32px;"
+                                    src="https://s3-alpha-sig.figma.com/img/eb5a/88ad/7a4e422bd09dc15e5d8255f5a6ae84f6?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=m2mQywidL1S8KTWJU6hzob4NV7KChVNRp52rHcd-hbRyx2cw-C343FK96c-H4L3rx3JRpJZ85dKrvlItjltjhtws0VsPUir7mieAEOP0ecFqZGS1poG~AWoFjk89OHtmnRicD7eFoSGyvscK8S8IObD2aP3DB6AKO7gwL6slBrH7udB63q7K-hbqnA1dWBTeMcJ2Ssl~8yX1GOJE2B4nzpqK3dBkzKfUd93RrAvocqkOTj2c1X5vt4WYyt1Bvn7NI9Ge8yYCf~0pckZQiA4M82KdK-4ASfL5voegrNbJMlGSUDPt6sejh4ELjmP~AxfPrnES7p3rriP4FPlazZIBxQ__"
+                                    alt>
+                                <h4 style="margin-top: 8px;"><span class="weather_hourly_forecast_speed"></span>km/h</h4>
+                            </div>
+                            <div
+                                style="padding:10px 16px;margin:0 4px;background-color: #373636; border-radius: 20px;display: flex; justify-content: space-between; align-items: center; flex-direction:column;">
+                                <h3 class="weather_hourly_forecast_date">12:00</h3>
+                                <img style="height: 48px;"
+                                    class="weather_hourly_forecast_img"
+                                    src="https://s3-alpha-sig.figma.com/img/efa2/cf5a/1d7b9e01f29bf7c83b014121c2d853b7?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=VfmL7O3Zdmvg9Ny0k-f4QmbbKIqQp~Syz3yu86ve0M1TPXtNchU0Hh8VlAMCdr7fh6Ebu2XHVUWhPv8ARunt1gkyOk5G-zjfi1iYLtqMplF9PhCnrZh5qaZGoI9iiwNUY0n0bA0P5tC5taSJxjNn6zRbRPS-YV~N0NnStyxyvAjuHsmWKHiJbG3tHQPRmNZM8tApmlPE9q~08W-p7kUhMWsRYUpz9GGZ9RmonaeZHlb3bzUzaAOMz8cvTCfKWERJf5e9MKLhAdsTUPC7WnCytYulnX3tk8tK1ocjxGGEnGvWEFwLqI1oS9mfRarfFxFyQU4k8aOPrXexDsJR7iFCJA__"
+                                    alt>
+                                <h4><span class="weather_hourly_forecast_temp"></span>°C</h4>
+                                <img id="weather_hourly_forecast_img_4" style="margin:4px 0;height: 32px;"
+                                    src="https://s3-alpha-sig.figma.com/img/eb5a/88ad/7a4e422bd09dc15e5d8255f5a6ae84f6?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=m2mQywidL1S8KTWJU6hzob4NV7KChVNRp52rHcd-hbRyx2cw-C343FK96c-H4L3rx3JRpJZ85dKrvlItjltjhtws0VsPUir7mieAEOP0ecFqZGS1poG~AWoFjk89OHtmnRicD7eFoSGyvscK8S8IObD2aP3DB6AKO7gwL6slBrH7udB63q7K-hbqnA1dWBTeMcJ2Ssl~8yX1GOJE2B4nzpqK3dBkzKfUd93RrAvocqkOTj2c1X5vt4WYyt1Bvn7NI9Ge8yYCf~0pckZQiA4M82KdK-4ASfL5voegrNbJMlGSUDPt6sejh4ELjmP~AxfPrnES7p3rriP4FPlazZIBxQ__"
+                                    alt>
+                                <h4 style="margin-top: 8px;"><span class="weather_hourly_forecast_speed"></span>km/h</h4>
+                            </div>
+                            <div
+                                style="padding:10px 16px;margin:0 4px;background-color: #373636; border-radius: 20px;display: flex; justify-content: space-between; align-items: center; flex-direction:column;">
+                                <h3 class="weather_hourly_forecast_date">12:00</h3>
+                                <img style="height: 48px;"
+                                    class="weather_hourly_forecast_img"
+                                    src="https://s3-alpha-sig.figma.com/img/efa2/cf5a/1d7b9e01f29bf7c83b014121c2d853b7?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=VfmL7O3Zdmvg9Ny0k-f4QmbbKIqQp~Syz3yu86ve0M1TPXtNchU0Hh8VlAMCdr7fh6Ebu2XHVUWhPv8ARunt1gkyOk5G-zjfi1iYLtqMplF9PhCnrZh5qaZGoI9iiwNUY0n0bA0P5tC5taSJxjNn6zRbRPS-YV~N0NnStyxyvAjuHsmWKHiJbG3tHQPRmNZM8tApmlPE9q~08W-p7kUhMWsRYUpz9GGZ9RmonaeZHlb3bzUzaAOMz8cvTCfKWERJf5e9MKLhAdsTUPC7WnCytYulnX3tk8tK1ocjxGGEnGvWEFwLqI1oS9mfRarfFxFyQU4k8aOPrXexDsJR7iFCJA__"
+                                    alt>
+                                <h4><span class="weather_hourly_forecast_temp"></span>°C</h4>
+                                <img id="weather_hourly_forecast_img_5" style="margin:4px 0;height: 32px;"
+                                    src="https://s3-alpha-sig.figma.com/img/eb5a/88ad/7a4e422bd09dc15e5d8255f5a6ae84f6?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=m2mQywidL1S8KTWJU6hzob4NV7KChVNRp52rHcd-hbRyx2cw-C343FK96c-H4L3rx3JRpJZ85dKrvlItjltjhtws0VsPUir7mieAEOP0ecFqZGS1poG~AWoFjk89OHtmnRicD7eFoSGyvscK8S8IObD2aP3DB6AKO7gwL6slBrH7udB63q7K-hbqnA1dWBTeMcJ2Ssl~8yX1GOJE2B4nzpqK3dBkzKfUd93RrAvocqkOTj2c1X5vt4WYyt1Bvn7NI9Ge8yYCf~0pckZQiA4M82KdK-4ASfL5voegrNbJMlGSUDPt6sejh4ELjmP~AxfPrnES7p3rriP4FPlazZIBxQ__"
+                                    alt>
+                                <h4 style="margin-top: 8px;"><span class="weather_hourly_forecast_speed"></span>km/h</h4>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./index.js"></script>
+    </body>
+</html>
